@@ -273,3 +273,16 @@ function markActiveLinkByPath() {
   });
 }
 document.addEventListener("DOMContentLoaded", markActiveLinkByPath);
+
+document.addEventListener("DOMContentLoaded", function () {
+  var servicesLink = document.getElementById("servicesDrop");
+  if (servicesLink) {
+    servicesLink.addEventListener("click", function (e) {
+      // Only navigate if on desktop (not collapsed menu)
+      if (window.innerWidth >= 992) {
+        window.location = this.getAttribute("href");
+      }
+      // Otherwise, let Bootstrap handle dropdown for mobile
+    });
+  }
+});
