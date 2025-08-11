@@ -1,0 +1,995 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Web Development - HTML5 & Bootstrap CSS</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        overflow-x: hidden;
+      }
+
+      /* Animated gradient background */
+      .hero-section {
+        background: linear-gradient(-45deg, #667eea, #764ba2, #f093fb, #f5576c);
+        background-size: 400% 400%;
+        animation: gradientShift 15s ease infinite;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        position: relative;
+      }
+
+      @keyframes gradientShift {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+
+      .hero-content {
+        z-index: 2;
+        position: relative;
+      }
+
+      .hero-title {
+        font-size: 4rem;
+        font-weight: 700;
+        color: white;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        animation: slideInUp 1s ease-out;
+      }
+
+      .hero-subtitle {
+        font-size: 1.5rem;
+        color: rgba(255, 255, 255, 0.9);
+        margin-bottom: 2rem;
+        animation: slideInUp 1s ease-out 0.3s both;
+      }
+
+      @keyframes slideInUp {
+        from {
+          opacity: 0;
+          transform: translateY(50px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .floating-icons {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+      }
+
+      .floating-icon {
+        position: absolute;
+        color: rgba(255, 255, 255, 0.1);
+        font-size: 2rem;
+        animation: float 6s ease-in-out infinite;
+      }
+
+      .floating-icon:nth-child(1) {
+        top: 20%;
+        left: 10%;
+        animation-delay: 0s;
+      }
+      .floating-icon:nth-child(2) {
+        top: 60%;
+        left: 80%;
+        animation-delay: 2s;
+      }
+      .floating-icon:nth-child(3) {
+        top: 80%;
+        left: 20%;
+        animation-delay: 4s;
+      }
+      .floating-icon:nth-child(4) {
+        top: 30%;
+        left: 70%;
+        animation-delay: 1s;
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0px) rotate(0deg);
+        }
+        50% {
+          transform: translateY(-20px) rotate(10deg);
+        }
+      }
+
+      .tech-card {
+        background: white;
+        border-radius: 20px;
+        padding: 2rem;
+        margin: 1rem 0;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .tech-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.4),
+          transparent
+        );
+        transition: left 0.5s;
+      }
+
+      .tech-card:hover::before {
+        left: 100%;
+      }
+
+      .tech-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+      }
+
+      .tech-icon {
+        width: 80px;
+        height: 80px;
+        background: linear-gradient(135deg, #667eea, #764ba2);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 1rem;
+        color: white;
+        font-size: 2rem;
+        animation: pulse 2s infinite;
+      }
+
+      @keyframes pulse {
+        0% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.05);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+
+      .section-title {
+        text-align: center;
+        margin: 4rem 0 3rem;
+        font-size: 3rem;
+        font-weight: 700;
+        background: linear-gradient(135deg, #667eea, #764ba2);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .cta-button {
+        background: linear-gradient(135deg, #667eea, #764ba2);
+        border: none;
+        padding: 15px 40px;
+        border-radius: 50px;
+        color: white;
+        font-weight: 600;
+        font-size: 1.1rem;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .cta-button::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, #764ba2, #667eea);
+        transition: left 0.3s ease;
+        z-index: 0;
+      }
+
+      .cta-button:hover::before {
+        left: 0;
+      }
+
+      .cta-button span {
+        position: relative;
+        z-index: 1;
+      }
+
+      .cta-button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+      }
+
+      .feature-list {
+        list-style: none;
+        padding: 0;
+      }
+
+      .feature-list li {
+        padding: 0.5rem 0;
+        position: relative;
+        padding-left: 2rem;
+        opacity: 0;
+        animation: fadeInLeft 0.6s ease forwards;
+      }
+
+      .feature-list li:nth-child(1) {
+        animation-delay: 0.1s;
+      }
+      .feature-list li:nth-child(2) {
+        animation-delay: 0.2s;
+      }
+      .feature-list li:nth-child(3) {
+        animation-delay: 0.3s;
+      }
+      .feature-list li:nth-child(4) {
+        animation-delay: 0.4s;
+      }
+
+      .feature-list li::before {
+        content: "✓";
+        position: absolute;
+        left: 0;
+        color: #28a745;
+        font-weight: bold;
+        font-size: 1.2rem;
+      }
+
+      @keyframes fadeInLeft {
+        from {
+          opacity: 0;
+          transform: translateX(-30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      .stats-section {
+        background: linear-gradient(135deg, #f093fb, #f5576c);
+        color: white;
+        padding: 4rem 0;
+        margin: 4rem 0;
+      }
+
+      .stat-item {
+        text-align: center;
+        padding: 2rem;
+      }
+
+      .stat-number {
+        font-size: 3rem;
+        font-weight: 700;
+        display: block;
+        animation: countUp 2s ease-out;
+      }
+
+      .stat-label {
+        font-size: 1.1rem;
+        opacity: 0.9;
+      }
+
+      @keyframes countUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .footer {
+        background: linear-gradient(135deg, #2c3e50, #34495e);
+        color: white;
+        padding: 3rem 0;
+        text-align: center;
+      }
+
+      /* Responsive design */
+      @media (max-width: 768px) {
+        .hero-title {
+          font-size: 2.5rem;
+        }
+
+        .hero-subtitle {
+          font-size: 1.2rem;
+        }
+
+        .section-title {
+          font-size: 2rem;
+        }
+      }
+
+      /* Scroll animations */
+      .animate-on-scroll {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.6s ease;
+      }
+
+      .animate-on-scroll.animated {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <div class="floating-icons">
+        <i class="fas fa-code floating-icon"></i>
+        <i class="fab fa-html5 floating-icon"></i>
+        <i class="fab fa-css3-alt floating-icon"></i>
+        <i class="fab fa-bootstrap floating-icon"></i>
+        <i class="fab fa-js floating-icon"></i>
+        <i class="fab fa-react floating-icon"></i>
+        <i class="fab fa-node floating-icon"></i>
+        <i class="fab fa-mongodb floating-icon"></i>
+        <i class="fab fa-express floating-icon"></i>
+        <i class="fab fa-next floating-icon"></i>
+        <i class="fab fa-mysql floating-icon"></i>
+      </div>
+
+      <div class="container hero-content">
+        <div class="row align-items-center">
+          <div class="col-lg-6">
+            <h1 class="hero-title">Web Development</h1>
+            <p class="hero-subtitle">
+              Master HTML5 & Bootstrap CSS for Modern Web Experiences
+            </p>
+            <button class="cta-button">
+              <span><i class="fas fa-rocket me-2"></i>Start Learning</span>
+            </button>
+          </div>
+          <div class="col-lg-6 text-center">
+            <div class="tech-preview">
+              <svg width="300" height="200" viewBox="0 0 300 200">
+                <rect width="300" height="200" fill="url(#grad1)" rx="10" />
+                <defs>
+                  <linearGradient
+                    id="grad1"
+                    x1="0%"
+                    y1="0%"
+                    x2="100%"
+                    y2="100%"
+                  >
+                    <stop
+                      offset="0%"
+                      style="
+                        stop-color: rgba(255, 255, 255, 0.3);
+                        stop-opacity: 1;
+                      "
+                    />
+                    <stop
+                      offset="100%"
+                      style="
+                        stop-color: rgba(255, 255, 255, 0.1);
+                        stop-opacity: 1;
+                      "
+                    />
+                  </linearGradient>
+                </defs>
+                <text
+                  x="150"
+                  y="100"
+                  text-anchor="middle"
+                  fill="white"
+                  font-size="24"
+                  font-weight="bold"
+                >
+                  HTML5,CSS3,JS
+                </text>
+                <text
+                  x="150"
+                  y="130"
+                  text-anchor="middle"
+                  fill="white"
+                  font-size="16"
+                >
+                  + MERN Stack
+                </text>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Technologies Section -->
+    <section class="container my-5">
+      <h2 class="section-title animate-on-scroll">Core Technologies</h2>
+
+      <div class="row">
+        <div class="col-md-6 col-lg-4 mb-4">
+          <div class="tech-card animate-on-scroll">
+            <div class="tech-icon">
+              <i class="fab fa-html5"></i>
+            </div>
+            <h3 class="text-center mb-3">HTML5</h3>
+            <p class="text-muted text-center mb-3">
+              The latest evolution of HTML brings semantic elements, multimedia
+              support, and enhanced form controls for modern web development.
+            </p>
+            <ul class="feature-list">
+              <li>Semantic Elements</li>
+              <li>Canvas & SVG Support</li>
+              <li>Local Storage</li>
+              <li>Responsive Design</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 mb-4">
+          <div class="tech-card animate-on-scroll">
+            <div class="tech-icon">
+              <i class="fab fa-css3"></i>
+            </div>
+            <h3 class="text-center mb-3">CSS3</h3>
+            <p class="text-muted text-center mb-3">
+              CSS3 introduces advanced styling capabilities, animations, and
+              responsive design tools to create visually engaging web
+              interfaces.
+            </p>
+            <ul class="feature-list">
+              <li>Media Queries</li>
+              <li>Flexbox & Grid Layout</li>
+              <li>Transitions & Animations</li>
+              <li>Custom Properties (Variables)</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 mb-4">
+          <div class="tech-card animate-on-scroll">
+            <div class="tech-icon">
+              <i class="fab fa-react"></i>
+            </div>
+            <h3 class="text-center mb-3">React Js</h3>
+            <p class="text-muted text-center mb-3">
+              ReactJS is a component-based JavaScript library for building fast,
+              scalable user interfaces with a virtual DOM.
+            </p>
+            <ul class="feature-list">
+              <li>Reusable Components</li>
+              <li>JSX Syntax</li>
+              <li>State & Props Management</li>
+              <li>React Hooks</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 mb-4">
+          <div class="tech-card animate-on-scroll">
+            <div class="tech-icon">
+              <i class="fab fa-node"></i>
+            </div>
+            <h3 class="text-center mb-3">Node JS</h3>
+            <p class="text-muted text-center mb-3">
+              NodeJS is a runtime environment that enables server-side execution
+              of JavaScript, ideal for building scalable network applications.
+            </p>
+            <ul class="feature-list">
+              <li>Non-blocking I/O</li>
+              <li>npm Ecosystem</li>
+              <li>Built-in Modules</li>
+              <li>Cross-platform Support</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 mb-4">
+          <div class="tech-card animate-on-scroll">
+            <div class="tech-icon">
+              <i class="fab fa-express"></i>
+            </div>
+            <h3 class="text-center mb-3">Express Js</h3>
+            <p class="text-muted text-center mb-3">
+              ExpressJS is a minimalist web framework for NodeJS that simplifies
+              routing, middleware integration, and server-side logic.
+            </p>
+            <ul class="feature-list">
+              <li>Routing System</li>
+              <li>Middleware Support</li>
+              <li>RESTful API Development</li>
+              <li>Template Engine Integration</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 mb-4">
+          <div class="tech-card animate-on-scroll">
+            <div class="tech-icon">
+              <i class="fab fa-next"></i>
+            </div>
+            <h3 class="text-center mb-3">Next Js</h3>
+            <p class="text-muted text-center mb-3">
+              Next.js is a React framework that enables server-side rendering,
+              static site generation, and optimized performance for web apps.
+            </p>
+            <ul class="feature-list">
+              <li>Server-Side Rendering (SSR)</li>
+              <li>Static Site Generation (SSG)</li>
+              <li>API Routes</li>
+              <li>Image Optimization</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 mb-4">
+          <div class="tech-card animate-on-scroll">
+            <div class="tech-icon">
+              <i class="fab fa-mongodb"></i>
+            </div>
+            <h3 class="text-center mb-3">MongoDB</h3>
+            <p class="text-muted text-center mb-3">
+              MongoDB is a NoSQL database that stores data in flexible,
+              JSON-like documents, ideal for modern, scalable applications.
+            </p>
+            <ul class="feature-list">
+              <li>Document-Oriented Storage</li>
+              <li>Schema Flexibility</li>
+              <li>High Availability & Scalability</li>
+              <li>Aggregation Framework</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 mb-4">
+          <div class="tech-card animate-on-scroll">
+            <div class="tech-icon">
+              <i class="fab fa-mysql"></i>
+            </div>
+            <h3 class="text-center mb-3">MySQL</h3>
+            <p class="text-muted text-center mb-3">
+              MySQL is a reliable relational database management system that
+              uses structured query language (SQL) for data manipulation.
+            </p>
+            <ul class="feature-list">
+              <li>ACID Compliance</li>
+              <li>Structured Schema</li>
+              <li>Joins & Indexing</li>
+              <li>Stored Procedures</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 mb-4">
+          <div class="tech-card animate-on-scroll">
+            <div class="tech-icon">
+              <i class="fab fa-js"></i>
+            </div>
+            <h3 class="text-center mb-3">JavaScript</h3>
+            <p class="text-muted text-center mb-3">
+              JavaScript is a versatile scripting language that powers dynamic
+              content, user interactions, and logic across web applications.
+            </p>
+            <ul class="feature-list">
+              <li>DOM Manipulation</li>
+              <li>Event Handling</li>
+              <li>Asynchronous Programming (Promises, async/await)</li>
+              <li>Client-Side Validation</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 mb-4">
+          <div class="tech-card animate-on-scroll">
+            <div class="tech-icon">
+              <i class="fas fa-mobile-alt"></i>
+            </div>
+            <h3 class="text-center mb-3">Responsive Design</h3>
+            <p class="text-muted text-center mb-3">
+              Create websites that work perfectly on all devices, from mobile
+              phones to desktop computers with fluid layouts and flexible
+              images.
+            </p>
+            <ul class="feature-list">
+              <li>Flexible Layouts</li>
+              <li>Media Queries</li>
+              <li>Touch-Friendly UI</li>
+              <li>Cross-Browser Support</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-3 col-sm-6">
+            <div class="stat-item">
+              <span class="stat-number">95%</span>
+              <span class="stat-label">Browser Support</span>
+            </div>
+          </div>
+          <div class="col-md-3 col-sm-6">
+            <div class="stat-item">
+              <span class="stat-number">50M+</span>
+              <span class="stat-label">Websites Built</span>
+            </div>
+          </div>
+          <div class="col-md-3 col-sm-6">
+            <div class="stat-item">
+              <span class="stat-number">12x</span>
+              <span class="stat-label">Faster Development</span>
+            </div>
+          </div>
+          <div class="col-md-3 col-sm-6">
+            <div class="stat-item">
+              <span class="stat-number">100%</span>
+              <span class="stat-label">Mobile Ready</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="container my-5">
+      <h2 class="section-title animate-on-scroll">Why Choose This Stack?</h2>
+
+      <div class="row align-items-center">
+        <div class="col-lg-6">
+          <div class="tech-card animate-on-scroll">
+            <h3>
+              <i class="fas fa-rocket text-primary me-3"></i>Fast Development
+            </h3>
+            <p class="mb-3">
+              ReactJS's component-based architecture and virtual DOM enable
+              efficient rendering and modular development, making it ideal for
+              building dynamic and scalable user interfaces with reusable code.
+              JavaScript’s flexibility and event-driven model allow developers
+              to rapidly build interactive features. Next.js enhances React with
+              server-side rendering and static site generation, streamlining
+              performance and development speed.
+            </p>
+
+            <h3>
+              <i class="fas fa-shield-alt text-success me-3"></i>Industry
+              Standard
+            </h3>
+            <p class="mb-3">
+              JavaScript remains the backbone of modern web development,
+              supported across all major browsers and platforms. ReactJS and
+              Next.js are widely adopted frameworks in the industry, trusted by
+              leading tech companies. MySQL and MongoDB are standard choices for
+              relational and NoSQL databases respectively, ensuring your backend
+              skills align with enterprise-grade solutions.
+            </p>
+
+            <h3><i class="fas fa-users text-info me-3"></i>Large Community</h3>
+            <p class="mb-3">
+              ReactJS, JavaScript, Next.js, MySQL, and MongoDB all benefit from
+              massive global communities. From official documentation to
+              open-source libraries, forums, and tutorials, developers have
+              access to a rich ecosystem of support and collaboration that
+              accelerates learning and problem-solving.
+            </p>
+          </div>
+        </div>
+
+        <div class="col-lg-6 text-center">
+          <div class="position-relative">
+            <svg width="400" height="300" viewBox="0 0 400 300">
+              <rect width="400" height="300" fill="url(#grad2)" rx="15" />
+              <defs>
+                <linearGradient id="grad2" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop
+                    offset="0%"
+                    style="stop-color: #667eea; stop-opacity: 0.8"
+                  />
+                  <stop
+                    offset="100%"
+                    style="stop-color: #764ba2; stop-opacity: 0.8"
+                  />
+                </linearGradient>
+              </defs>
+
+              <!-- Browser mockup -->
+              <rect
+                x="20"
+                y="40"
+                width="360"
+                height="220"
+                fill="white"
+                rx="5"
+              />
+              <rect
+                x="20"
+                y="40"
+                width="360"
+                height="30"
+                fill="#f8f9fa"
+                rx="5"
+              />
+              <circle cx="40" cy="55" r="5" fill="#ff5f56" />
+              <circle cx="60" cy="55" r="5" fill="#ffbd2e" />
+              <circle cx="80" cy="55" r="5" fill="#27ca3f" />
+
+              <!-- Content mockup -->
+              <rect
+                x="40"
+                y="90"
+                width="100"
+                height="15"
+                fill="#667eea"
+                rx="2"
+              />
+              <rect
+                x="40"
+                y="115"
+                width="200"
+                height="8"
+                fill="#e9ecef"
+                rx="2"
+              />
+              <rect
+                x="40"
+                y="130"
+                width="150"
+                height="8"
+                fill="#e9ecef"
+                rx="2"
+              />
+
+              <rect
+                x="40"
+                y="160"
+                width="80"
+                height="30"
+                fill="#28a745"
+                rx="5"
+              />
+              <rect
+                x="130"
+                y="160"
+                width="80"
+                height="30"
+                fill="#007bff"
+                rx="5"
+              />
+
+              <rect
+                x="250"
+                y="90"
+                width="100"
+                height="80"
+                fill="#f8f9fa"
+                rx="5"
+              />
+
+              <text
+                x="200"
+                y="280"
+                text-anchor="middle"
+                fill="white"
+                font-size="14"
+                font-weight="bold"
+              >
+                Responsive • Modern • Fast
+              </text>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer
+      class="footer text-white pt-5 bg-dark"
+      
+    >
+      <div class="container">
+        <div class="row gy-4">
+          <div class="col-md-3">
+            <h6>About</h6>
+            <p>
+              Ameotech Informatics, founded in 2010, is committed to helping
+              businesses with technology through transparent and result-driven
+              development.
+            </p>
+          </div>
+
+          <div class="col-md-3">
+            <h6>Quick Links</h6>
+            <ul class="list-unstyled">
+              <li><a href="../index.html#hero" class="footer-link">Home</a></li>
+              <li>
+                <a href="../index.html#about" class="footer-link">About Us</a>
+              </li>
+              <li><a href="../services.html" class="footer-link">Services</a></li>
+              <li>
+                <a href="../index.html#technologies" class="footer-link"
+                  >Technologies</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div class="col-md-3">
+            <h6>Services</h6>
+            <ul class="list-unstyled">
+              <li>Web Development</li>
+              <li>Mobile App Development</li>
+              <li>UI/UX Design</li>
+              <li>SEO Services</li>
+            </ul>
+          </div>
+
+          <div class="col-md-3">
+            <h6>Contact Info</h6>
+            <address>
+              C-127 1st Floor, Phase-8, Industrial Area, Mohali, 160071,
+              India<br />
+              Email:
+              <a href="mailto:contact@ameotech.com" class="footer-link"
+                >contact@ameotech.com</a
+              ><br />
+              Phone: +91-0000000000
+            </address>
+
+            <div class="social mt-2">
+              <a href="#" class="me-2 footer-social">LinkedIn</a>
+              <a href="#" class="me-2 footer-social">Twitter</a>
+              <a href="#" class="footer-social">Facebook</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center py-3 mt-4 border-top border-secondary">
+          © <span id="currentYear"></span> Ameotech Informatics. All Rights
+          Reserved.
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      // Scroll animations
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px",
+      };
+
+      const observer = new IntersectionObserver(function (entries) {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("animated");
+          }
+        });
+      }, observerOptions);
+
+      // Observe all elements with animate-on-scroll class
+      document.querySelectorAll(".animate-on-scroll").forEach((el) => {
+        observer.observe(el);
+      });
+
+      // Add click interactions to buttons
+      document.querySelectorAll(".cta-button").forEach((button) => {
+        button.addEventListener("click", function () {
+          // Create ripple effect
+          const ripple = document.createElement("span");
+          ripple.style.position = "absolute";
+          ripple.style.borderRadius = "50%";
+          ripple.style.background = "rgba(255,255,255,0.6)";
+          ripple.style.transform = "scale(0)";
+          ripple.style.animation = "ripple 0.6s linear";
+          ripple.style.left = "50%";
+          ripple.style.top = "50%";
+          ripple.style.width = "20px";
+          ripple.style.height = "20px";
+          ripple.style.marginLeft = "-10px";
+          ripple.style.marginTop = "-10px";
+
+          this.appendChild(ripple);
+
+          setTimeout(() => {
+            ripple.remove();
+          }, 600);
+        });
+      });
+
+      // Add CSS for ripple animation
+      const style = document.createElement("style");
+      style.textContent = `
+            @keyframes ripple {
+                to {
+                    transform: scale(4);
+                    opacity: 0;
+                }
+            }
+        `;
+      document.head.appendChild(style);
+
+      // Smooth scrolling for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute("href"));
+          if (target) {
+            target.scrollIntoView({
+              behavior: "smooth",
+              block: "start",
+            });
+          }
+        });
+      });
+    </script>
+    <script>
+      (function () {
+        function c() {
+          var b = a.contentDocument || a.contentWindow.document;
+          if (b) {
+            var d = b.createElement("script");
+            d.innerHTML =
+              "window.__CF$cv$params={r:'96d6882ff3796470',t:'MTc1NDkwMjcxNS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";
+            b.getElementsByTagName("head")[0].appendChild(d);
+          }
+        }
+        if (document.body) {
+          var a = document.createElement("iframe");
+          a.height = 1;
+          a.width = 1;
+          a.style.position = "absolute";
+          a.style.top = 0;
+          a.style.left = 0;
+          a.style.border = "none";
+          a.style.visibility = "hidden";
+          document.body.appendChild(a);
+          if ("loading" !== document.readyState) c();
+          else if (window.addEventListener)
+            document.addEventListener("DOMContentLoaded", c);
+          else {
+            var e = document.onreadystatechange || function () {};
+            document.onreadystatechange = function (b) {
+              e(b);
+              "loading" !== document.readyState &&
+                ((document.onreadystatechange = e), c());
+            };
+          }
+        }
+      })();
+    </script>
+  </body>
+</html>

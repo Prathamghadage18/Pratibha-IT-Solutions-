@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UI/UX Design - Modern Interactive Experience</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Animated Background */
+        .hero-section {
+            background: linear-gradient(-45deg, #667eea, #764ba2, #f093fb, #f5576c);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+            min-height: 100vh;
+            position: relative;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Floating particles */
+        .particle {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .particle:nth-child(1) { width: 80px; height: 80px; top: 20%; left: 10%; animation-delay: 0s; }
+        .particle:nth-child(2) { width: 60px; height: 60px; top: 60%; left: 80%; animation-delay: 2s; }
+        .particle:nth-child(3) { width: 40px; height: 40px; top: 80%; left: 20%; animation-delay: 4s; }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+        }
+
+        /* Navigation */
+        .navbar {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: white !important;
+        }
+
+        .nav-link {
+            color: white !important;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-link:hover {
+            color: #f093fb !important;
+            transform: translateY(-2px);
+        }
+
+        /* Hero Content */
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            padding-top: 150px;
+        }
+
+        .hero-title {
+            font-size: 4rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 1rem;
+            animation: slideInUp 1s ease;
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 2rem;
+            animation: slideInUp 1s ease 0.2s both;
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Buttons */
+        .btn-gradient {
+            background: linear-gradient(45deg, #f093fb, #f5576c);
+            border: none;
+            padding: 15px 30px;
+            border-radius: 50px;
+            color: white;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(240, 147, 251, 0.3);
+        }
+
+        .btn-gradient:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(240, 147, 251, 0.4);
+            color: white;
+        }
+
+        .btn-outline {
+            border: 2px solid white;
+            color: white;
+            padding: 15px 30px;
+            border-radius: 50px;
+            background: transparent;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            margin-left: 1rem;
+        }
+
+        .btn-outline:hover {
+            background: white;
+            color: #667eea;
+            transform: translateY(-3px);
+        }
+
+        /* Services Section */
+        .services-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        }
+
+        .section-title {
+            font-size: 3rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 3rem;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border: none;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(45deg, #f093fb, #f5576c);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+        }
+
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 2rem;
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover .service-icon {
+            transform: scale(1.1) rotate(360deg);
+        }
+
+        /* Technologies Section */
+        .tech-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .tech-item {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .tech-item:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .tech-image {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(45deg, #f093fb, #f5576c);
+            border-radius: 15px;
+            margin: 0 auto 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            transition: all 0.3s ease;
+        }
+
+        .tech-item:hover .tech-image {
+            transform: scale(1.1);
+        }
+
+        /* Process Section */
+        .process-section {
+            padding: 100px 0;
+            background: white;
+        }
+
+        .process-step {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            color: white;
+            font-weight: 700;
+            font-size: 1.5rem;
+        }
+
+        .process-step::after {
+            content: '';
+            position: absolute;
+            top: 30px;
+            left: 50%;
+            width: 2px;
+            height: 100px;
+            background: linear-gradient(to bottom, #667eea, transparent);
+            transform: translateX(-50%);
+        }
+
+        .process-step:last-child::after {
+            display: none;
+        }
+
+        /* Footer */
+        .footer {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            padding: 50px 0;
+            text-align: center;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .btn-outline {
+                margin-left: 0;
+                margin-top: 1rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+
+        /* Scroll animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    Navigation
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#"><i class="fas fa-palette"></i> UI/UX Studio</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#technologies">Technologies</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#process">Process</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section d-flex align-items-center">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 hero-content">
+                    <h1 class="hero-title">UI/UX DESIGN</h1>
+                    <p class="hero-subtitle">Creating exceptional digital experiences through innovative design, seamless interactions, and user-centered solutions that captivate and convert.</p>
+                    <div class="hero-buttons">
+                        <a href="#services" class="btn-gradient">Explore Services</a>
+                        <a href="#contact" class="btn-outline">Get Started</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services-section">
+        <div class="container">
+            <h2 class="section-title fade-in">Our Design Services</h2>
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card fade-in">
+                        <div class="service-icon">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <h4>Mobile App Design</h4>
+                        <p>Intuitive and engaging mobile interfaces that provide seamless user experiences across iOS and Android platforms with modern design principles.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card fade-in">
+                        <div class="service-icon">
+                            <i class="fas fa-desktop"></i>
+                        </div>
+                        <h4>Web Design</h4>
+                        <p>Responsive and visually stunning websites that convert visitors into customers through strategic design and optimized user journeys.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card fade-in">
+                        <div class="service-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h4>User Research</h4>
+                        <p>In-depth user research and testing to understand your audience and create data-driven design decisions that improve engagement.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card fade-in">
+                        <div class="service-icon">
+                            <i class="fas fa-pencil-ruler"></i>
+                        </div>
+                        <h4>Prototyping</h4>
+                        <p>Interactive prototypes that bring your ideas to life, allowing for testing and refinement before development begins.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card fade-in">
+                        <div class="service-icon">
+                            <i class="fas fa-palette"></i>
+                        </div>
+                        <h4>Brand Identity</h4>
+                        <p>Comprehensive brand identity design including logos, color schemes, and visual guidelines that reflect your brand's personality.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card fade-in">
+                        <div class="service-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h4>UX Strategy</h4>
+                        <p>Strategic UX planning and optimization to improve user satisfaction, increase conversions, and achieve business goals.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technologies Section -->
+    <section id="technologies" class="tech-section">
+        <div class="container">
+            <h2 class="section-title text-white fade-in">Technologies We Use</h2>
+            <div class="tech-grid">
+                <div class="tech-item fade-in">
+                    <div class="tech-image">🎨</div>
+                    <h4>Adobe Creative Suite</h4>
+                    <p>Photoshop, Illustrator, XD for comprehensive design workflows and creative asset creation.</p>
+                </div>
+                <div class="tech-item fade-in">
+                    <div class="tech-image">📱</div>
+                    <h4>Figma</h4>
+                    <p>Collaborative design platform for creating interactive prototypes and design systems.</p>
+                </div>
+                <div class="tech-item fade-in">
+                    <div class="tech-image">⚡</div>
+                    <h4>Sketch</h4>
+                    <p>Vector-based design tool for creating beautiful interfaces and user experiences.</p>
+                </div>
+                <div class="tech-item fade-in">
+                    <div class="tech-image">🔧</div>
+                    <h4>InVision</h4>
+                    <p>Prototyping and collaboration platform for bringing designs to life with interactions.</p>
+                </div>
+                <div class="tech-item fade-in">
+                    <div class="tech-image">💻</div>
+                    <h4>HTML5 & CSS3</h4>
+                    <p>Modern web technologies for creating responsive and interactive user interfaces.</p>
+                </div>
+                <div class="tech-item fade-in">
+                    <div class="tech-image">🚀</div>
+                    <h4>JavaScript</h4>
+                    <p>Dynamic interactions and animations to enhance user experience and engagement.</p>
+                </div>
+                <div class="tech-item fade-in">
+                    <div class="tech-image">📊</div>
+                    <h4>Analytics Tools</h4>
+                    <p>Google Analytics, Hotjar, and other tools for measuring and optimizing user experience.</p>
+                </div>
+                <div class="tech-item fade-in">
+                    <div class="tech-image">🎯</div>
+                    <h4>User Testing</h4>
+                    <p>UsabilityHub, Maze, and other platforms for conducting user research and testing.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section id="process" class="process-section">
+        <div class="container">
+            <h2 class="section-title fade-in">Our Design Process</h2>
+            <div class="row">
+                <div class="col-lg-3 col-md-6">
+                    <div class="process-step fade-in">
+                        <div class="step-number">1</div>
+                        <h4>Research</h4>
+                        <p>Understanding your users, market, and business goals through comprehensive research and analysis.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="process-step fade-in">
+                        <div class="step-number">2</div>
+                        <h4>Strategy</h4>
+                        <p>Developing a strategic approach based on insights to create effective design solutions.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="process-step fade-in">
+                        <div class="step-number">3</div>
+                        <h4>Design</h4>
+                        <p>Creating beautiful, functional designs that align with your brand and user needs.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="process-step fade-in">
+                        <div class="step-number">4</div>
+                        <h4>Test</h4>
+                        <p>Validating designs through user testing and iterating based on feedback and data.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer
+      class="footer text-white pt-5 bg-dark"
+      
+    >
+      <div class="container">
+        <div class="row gy-4">
+          <div class="col-md-3">
+            <h6>About</h6>
+            <p>
+              Ameotech Informatics, founded in 2010, is committed to helping
+              businesses with technology through transparent and result-driven
+              development.
+            </p>
+          </div>
+
+          <div class="col-md-3">
+            <h6>Quick Links</h6>
+            <ul class="list-unstyled">
+              <li><a href="../index.html#hero" class="footer-link">Home</a></li>
+              <li>
+                <a href="../index.html#about" class="footer-link">About Us</a>
+              </li>
+              <li><a href="../services.html" class="footer-link">Services</a></li>
+              <li>
+                <a href="../index.html#technologies" class="footer-link"
+                  >Technologies</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div class="col-md-3">
+            <h6>Services</h6>
+            <ul class="list-unstyled">
+              <li>Web Development</li>
+              <li>Mobile App Development</li>
+              <li>UI/UX Design</li>
+              <li>SEO Services</li>
+            </ul>
+          </div>
+
+          <div class="col-md-3">
+            <h6>Contact Info</h6>
+            <address>
+              C-127 1st Floor, Phase-8, Industrial Area, Mohali, 160071,
+              India<br />
+              Email:
+              <a href="mailto:contact@ameotech.com" class="footer-link"
+                >contact@ameotech.com</a
+              ><br />
+              Phone: +91-0000000000
+            </address>
+
+            <div class="social mt-2">
+              <a href="#" class="me-2 footer-social">LinkedIn</a>
+              <a href="#" class="me-2 footer-social">Twitter</a>
+              <a href="#" class="footer-social">Facebook</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center py-3 mt-4 border-top border-secondary">
+          © <span id="currentYear"></span> Ameotech Informatics. All Rights
+          Reserved.
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Navbar background on scroll
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 100) {
+                navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+                navbar.querySelectorAll('.nav-link, .navbar-brand').forEach(link => {
+                    link.style.color = '#333 !important';
+                });
+            } else {
+                navbar.style.background = 'rgba(255, 255, 255, 0.1)';
+                navbar.querySelectorAll('.nav-link, .navbar-brand').forEach(link => {
+                    link.style.color = 'white !important';
+                });
+            }
+        });
+
+        // Interactive hover effects for service cards
+        document.querySelectorAll('.service-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // Tech items interactive effects
+        document.querySelectorAll('.tech-item').forEach(item => {
+            item.addEventListener('click', function() {
+                this.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    this.style.transform = 'translateY(-5px) scale(1)';
+                }, 150);
+            });
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'96d6d02f31bd84f5',t:'MTc1NDkwNTY2NC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>

@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Entry Services</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Animated gradient background */
+        .hero-section {
+            background: linear-gradient(-45deg, #667eea, #764ba2, #f093fb, #f5576c);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-title {
+            font-size: 4rem;
+            font-weight: 700;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 2rem;
+            animation: fadeInUp 1s ease-out 0.3s both;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .floating-elements {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .floating-icon {
+            position: absolute;
+            color: rgba(255,255,255,0.1);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .floating-icon:nth-child(1) { top: 20%; left: 10%; animation-delay: 0s; }
+        .floating-icon:nth-child(2) { top: 60%; left: 80%; animation-delay: 2s; }
+        .floating-icon:nth-child(3) { top: 80%; left: 20%; animation-delay: 4s; }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .btn-gradient {
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            border: none;
+            padding: 15px 30px;
+            border-radius: 50px;
+            color: white;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+        }
+
+        .btn-gradient:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(0,0,0,0.3);
+            color: white;
+        }
+
+        .section-padding {
+            padding: 100px 0;
+        }
+
+        .card-modern {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            border: none;
+            height: 100%;
+        }
+
+        .card-modern:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 80px rgba(0,0,0,0.15);
+        }
+
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 30px;
+            transition: all 0.3s ease;
+        }
+
+        .service-icon:hover {
+            transform: rotate(5deg) scale(1.1);
+        }
+
+        .service-icon i {
+            font-size: 2rem;
+            color: white;
+        }
+
+        .tech-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 15px;
+            padding: 30px;
+            color: white;
+            text-align: center;
+            transition: all 0.3s ease;
+            margin-bottom: 30px;
+        }
+
+        .tech-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.4);
+        }
+
+        .tech-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .stats-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            display: block;
+            animation: countUp 2s ease-out;
+        }
+
+        @keyframes countUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .process-step {
+            text-align: center;
+            padding: 30px;
+            position: relative;
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: white;
+            font-weight: 700;
+            font-size: 1.5rem;
+        }
+
+        .dummy-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(45deg, #f093fb, #f5576c);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .dummy-image:hover {
+            transform: scale(1.02);
+        }
+
+        .section-title {
+            font-size: 3rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 60px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="floating-elements">
+            <i class="fas fa-database floating-icon fa-3x"></i>
+            <i class="fas fa-chart-bar floating-icon fa-2x"></i>
+            <i class="fas fa-keyboard floating-icon fa-4x"></i>
+        </div>
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 hero-content">
+                    <h1 class="hero-title">Data Entry</h1>
+                    <p class="hero-subtitle">Professional, Accurate & Fast Data Processing Solutions</p>
+                    <button class="btn btn-gradient btn-lg">Get Started Today</button>
+                </div>
+                <div class="col-lg-6">
+                    <div class="dummy-image">
+                        <i class="fas fa-laptop-code fa-5x"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="section-padding">
+        <div class="container">
+            <h2 class="section-title fade-in">Our Data Entry Services</h2>
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card-modern fade-in">
+                        <div class="service-icon">
+                            <i class="fas fa-keyboard"></i>
+                        </div>
+                        <h4>Manual Data Entry</h4>
+                        <p>Accurate manual data entry from various sources including handwritten documents, PDFs, and images with 99.9% accuracy guarantee.</p>
+                        <div class="dummy-image">
+                            <span>Manual Entry Image</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card-modern fade-in">
+                        <div class="service-icon">
+                            <i class="fas fa-file-excel"></i>
+                        </div>
+                        <h4>Spreadsheet Processing</h4>
+                        <p>Excel and Google Sheets data processing, formatting, and analysis with advanced formulas and pivot tables.</p>
+                        <div class="dummy-image">
+                            <span>Spreadsheet Image</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card-modern fade-in">
+                        <div class="service-icon">
+                            <i class="fas fa-database"></i>
+                        </div>
+                        <h4>Database Management</h4>
+                        <p>Complete database creation, maintenance, and migration services with data validation and quality assurance.</p>
+                        <div class="dummy-image">
+                            <span>Database Image</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6">
+                    <div class="stat-item">
+                        <span class="stat-number">10K+</span>
+                        <h5>Projects Completed</h5>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="stat-item">
+                        <span class="stat-number">99.9%</span>
+                        <h5>Accuracy Rate</h5>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="stat-item">
+                        <span class="stat-number">24/7</span>
+                        <h5>Support Available</h5>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="stat-item">
+                        <span class="stat-number">500+</span>
+                        <h5>Happy Clients</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technologies Section -->
+    <section class="section-padding">
+        <div class="container">
+            <h2 class="section-title fade-in">Technologies & Tools We Use</h2>
+            <div class="row">
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="tech-card fade-in">
+                        <i class="fas fa-file-excel tech-icon"></i>
+                        <h5>Microsoft Excel</h5>
+                        <p>Advanced spreadsheet processing and analysis</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="tech-card fade-in">
+                        <i class="fab fa-google tech-icon"></i>
+                        <h5>Google Workspace</h5>
+                        <p>Cloud-based collaboration and data management</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="tech-card fade-in">
+                        <i class="fas fa-database tech-icon"></i>
+                        <h5>SQL Databases</h5>
+                        <p>MySQL, PostgreSQL, and SQL Server management</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="tech-card fade-in">
+                        <i class="fas fa-robot tech-icon"></i>
+                        <h5>OCR Technology</h5>
+                        <p>Automated text recognition and extraction</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="tech-card fade-in">
+                        <i class="fab fa-python tech-icon"></i>
+                        <h5>Python Scripts</h5>
+                        <p>Custom automation and data processing</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="tech-card fade-in">
+                        <i class="fas fa-cloud tech-icon"></i>
+                        <h5>Cloud Storage</h5>
+                        <p>Secure data storage and backup solutions</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="tech-card fade-in">
+                        <i class="fas fa-shield-alt tech-icon"></i>
+                        <h5>Data Security</h5>
+                        <p>Encryption and secure data handling</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="tech-card fade-in">
+                        <i class="fas fa-chart-line tech-icon"></i>
+                        <h5>Analytics Tools</h5>
+                        <p>Data visualization and reporting</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="section-padding bg-light">
+        <div class="container">
+            <h2 class="section-title fade-in">Our Process</h2>
+            <div class="row">
+                <div class="col-lg-3 col-md-6">
+                    <div class="process-step fade-in">
+                        <div class="step-number">1</div>
+                        <h5>Data Collection</h5>
+                        <p>We gather and analyze your data requirements</p>
+                        <div class="dummy-image">
+                            <span>Collection Process</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="process-step fade-in">
+                        <div class="step-number">2</div>
+                        <h5>Processing</h5>
+                        <p>Accurate data entry with quality checks</p>
+                        <div class="dummy-image">
+                            <span>Processing Image</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="process-step fade-in">
+                        <div class="step-number">3</div>
+                        <h5>Validation</h5>
+                        <p>Multiple quality assurance checks</p>
+                        <div class="dummy-image">
+                            <span>Validation Image</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="process-step fade-in">
+                        <div class="step-number">4</div>
+                        <h5>Delivery</h5>
+                        <p>Secure delivery in your preferred format</p>
+                        <div class="dummy-image">
+                            <span>Delivery Image</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer
+      class="footer text-white pt-5 bg-dark"
+      
+    >
+      <div class="container">
+        <div class="row gy-4">
+          <div class="col-md-3">
+            <h6>About</h6>
+            <p>
+              Ameotech Informatics, founded in 2010, is committed to helping
+              businesses with technology through transparent and result-driven
+              development.
+            </p>
+          </div>
+
+          <div class="col-md-3">
+            <h6>Quick Links</h6>
+            <ul class="list-unstyled">
+              <li><a href="../index.html#hero" class="footer-link">Home</a></li>
+              <li>
+                <a href="../index.html#about" class="footer-link">About Us</a>
+              </li>
+              <li><a href="../services.html" class="footer-link">Services</a></li>
+              <li>
+                <a href="../index.html#technologies" class="footer-link"
+                  >Technologies</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div class="col-md-3">
+            <h6>Services</h6>
+            <ul class="list-unstyled">
+              <li>Web Development</li>
+              <li>Mobile App Development</li>
+              <li>UI/UX Design</li>
+              <li>SEO Services</li>
+            </ul>
+          </div>
+
+          <div class="col-md-3">
+            <h6>Contact Info</h6>
+            <address>
+              C-127 1st Floor, Phase-8, Industrial Area, Mohali, 160071,
+              India<br />
+              Email:
+              <a href="mailto:contact@ameotech.com" class="footer-link"
+                >contact@ameotech.com</a
+              ><br />
+              Phone: +91-0000000000
+            </address>
+
+            <div class="social mt-2">
+              <a href="#" class="me-2 footer-social">LinkedIn</a>
+              <a href="#" class="me-2 footer-social">Twitter</a>
+              <a href="#" class="footer-social">Facebook</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center py-3 mt-4 border-top border-secondary">
+          © <span id="currentYear"></span> Ameotech Informatics. All Rights
+          Reserved.
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Fade in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all fade-in elements
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Smooth scrolling for buttons
+        document.querySelectorAll('.btn').forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
+                // Add click animation
+                this.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    this.style.transform = '';
+                }, 150);
+            });
+        });
+
+        // Add hover effects to cards
+        document.querySelectorAll('.card-modern, .tech-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'96d6f851a42271b6',t:'MTc1NDkwNzMwOC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>

@@ -1,0 +1,1004 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Ameotech Informatics — Home</title>
+
+    <!-- Google Font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <!-- Header / Navbar -->
+<header>
+  <nav
+    id="mainNavbar"
+    class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top"
+  >
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center" href="index.html">
+        <img src="img/logo.jpg" alt="Ameotech" height="44" />
+        <span class="ms-2 brand-name">Ameotech Informatics</span>
+      </a>
+
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navCollapse"
+        aria-controls="navCollapse"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navCollapse">
+        <ul class="navbar-nav ms-auto align-items-lg-center">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html#hero">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="index.html#about">About Us</a>
+          </li>
+
+          <!-- Services Dropdown -->
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle"
+              href="#"
+              id="servicesDrop"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              Services
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="servicesDrop">
+              <li><a class="dropdown-item" href="services.html#web">Web Development</a></li>
+              <li><a class="dropdown-item" href="services.html#mobile">Mobile App Development</a></li>
+              <li><a class="dropdown-item" href="services.html#uiux">UI/UX Design</a></li>
+              <li><a class="dropdown-item" href="services.html#seo">SEO Services</a></li>
+              <li><a class="dropdown-item" href="services.html#dataentry">Data Entry</a></li>
+            </ul>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="index.html#technologies">Technologies</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contact.html">Contact</a>
+          </li>
+        </ul>
+
+        <a
+          href="contact.html"
+          class="btn btn-quote ms-3"
+          style="background: linear-gradient(to right, #0d6efd, #dc3545); color: #fff;"
+        >
+          Get a Quote
+        </a>
+      </div>
+    </div>
+  </nav>
+</header>
+
+    <!-- HERO Section with Modern Gradient Glow -->
+    <section
+      id="hero"
+      class="position-relative d-flex align-items-center text-white overflow-hidden"
+      style="
+        min-height: 70vh;
+        background: linear-gradient(to right, #ff6ec4, #7873f5);
+        z-index: 1;
+      "
+    >
+      <!-- Soft Glow Overlay -->
+      <div
+        class="position-absolute top-0 start-0 w-100 h-100"
+        style="
+          background: radial-gradient(
+            circle at center,
+            rgba(255, 255, 255, 0.08),
+            transparent
+          );
+          z-index: 0;
+        "
+      ></div>
+
+      <!-- Hero Content -->
+      <div class="container text-center position-relative z-1">
+        <h1
+          class="display-4 fw-bold mb-3"
+          style="
+            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
+            animation: fadeSlideUp 1s ease-out forwards;
+            opacity: 0;
+          "
+        >
+          Your Partner for Scalable Software Development
+        </h1>
+        <p
+          class="lead mb-4"
+          style="
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
+            animation: fadeSlideUp 1.2s ease-out forwards;
+            opacity: 0;
+          "
+        >
+          We deliver high-quality web and mobile app development services, from
+          early conception to tech support and maintenance.
+        </p>
+        <div
+          class="mt-4 d-flex justify-content-center gap-3"
+          style="animation: fadeSlideUp 1.4s ease-out forwards; opacity: 0"
+        >
+          <a
+            class="btn btn-light btn-lg px-4 shadow-sm"
+            href="services.html"
+            style="transition: all 0.3s ease"
+            onmouseover="this.style.boxShadow='0 0 20px rgba(255,255,255,0.4)'"
+            onmouseout="this.style.boxShadow='0 0 0 rgba(0,0,0,0)'"
+            >Our Services</a
+          >
+          <a
+            class="btn btn-outline-light btn-lg px-4 shadow-sm"
+            href="contact.html"
+            style="transition: all 0.3s ease"
+            onmouseover="this.style.boxShadow='0 0 20px rgba(255,255,255,0.4)'"
+            onmouseout="this.style.boxShadow='0 0 0 rgba(0,0,0,0)'"
+            >Contact Us</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- Inline Animation Styles -->
+    <style>
+      @keyframes fadeSlideUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    </style>
+
+    <!-- KEY METRICS Section -->
+    <section id="metrics" class="py-5 bg-light">
+      <div class="container">
+        <div class="row text-center g-4">
+          <div class="col-md-3">
+            <div class="bg-white p-4 rounded shadow-lg h-100">
+              <div class="display-6 fw-bold text-primary">
+                <span class="counter" data-target="14">0</span>+
+              </div>
+              <div class="fw-semibold text-muted mt-2">Years of Experience</div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="bg-white p-4 rounded shadow-lg h-100">
+              <div class="display-6 fw-bold text-success">
+                <span class="counter" data-target="97">0</span>%
+              </div>
+              <div class="fw-semibold text-muted mt-2">
+                Returning Client Rate
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="bg-white p-4 rounded shadow-lg h-100">
+              <div class="display-6 fw-bold text-danger">
+                <span class="counter" data-target="90">0</span>+
+              </div>
+              <div class="fw-semibold text-muted mt-2">
+                Awards & Certifications
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="bg-white p-4 rounded shadow-lg h-100">
+              <div class="display-6 fw-bold text-warning">
+                <span class="counter" data-target="1000">0</span>+
+              </div>
+              <div class="fw-semibold text-muted mt-2">
+                Successfully Delivered Projects
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Counter Animation Script -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const counters = document.querySelectorAll(".counter");
+        counters.forEach((counter) => {
+          const updateCount = () => {
+            const target = +counter.getAttribute("data-target");
+            const count = +counter.innerText;
+            const increment = Math.ceil(target / 100);
+
+            if (count < target) {
+              counter.innerText = count + increment;
+              setTimeout(updateCount, 30);
+            } else {
+              counter.innerText = target;
+            }
+          };
+          updateCount();
+        });
+      });
+    </script>
+
+    <div class="container py-5">
+      <!-- Section Title -->
+      <div class="row mb-5">
+        <div class="col-12">
+          <h2 class="text-center fw-bold text-uppercase">Core Values</h2>
+        </div>
+      </div>
+
+      <!-- Cards Row -->
+      <div class="row row-cols-1 row-cols-md-3 g-4">
+        <!-- Card 1: Empowerment -->
+        <div class="col">
+          <div class="card h-100 shadow-sm">
+            <!-- NOTE: Replace with your image path -->
+            <img
+              src="/img/empowerment.jpg"
+              class="card-img-top"
+              alt="A team of diverse professionals giving a group high-five, symbolizing empowerment."
+            />
+            <div class="card-body">
+              <h5 class="card-title fw-bold" style="color: #9d4343">
+                Empowerment
+              </h5>
+              <p class="card-text">
+                We empower our clientele to think big and be market leaders by
+                helping them deliver great services through our innovative
+                custom digital solutions.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2: Reflection -->
+        <div class="col">
+          <div class="card h-100 shadow-sm">
+            <!-- NOTE: Replace with your image path -->
+            <img
+              src="/img/reflection.jpg"
+              class="card-img-top"
+              alt="A group of colleagues collaborating around a laptop in a modern office, representing reflection."
+            />
+            <div class="card-body">
+              <h5 class="card-title fw-bold" style="color: #9d4343">
+                Reflection
+              </h5>
+              <p class="card-text">
+                We believe in reflecting on our practices to continually improve
+                and provide the best service possible.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3: Responsibility -->
+        <div class="col">
+          <div class="card h-100 shadow-sm">
+            <!-- NOTE: Replace with your image path -->
+            <img
+              src="/img/reponsibility.jpg"
+              class="card-img-top"
+              alt="A futuristic office scene with a robot working alongside humans, illustrating responsibility and technology."
+            />
+            <div class="card-body">
+              <h5 class="card-title fw-bold" style="color: #9d4343">
+                Responsibility
+              </h5>
+              <p class="card-text">
+                We take responsibility for our actions and the quality of the
+                solutions we provide.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- /row -->
+    </div>
+    <!-- /container -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- ABOUT Section (Bootstrap 5.3.3 Compatible) -->
+    <section
+      id="about"
+      class="py-5"
+      style="
+        background: linear-gradient(to right, #0d6efd, #dc3545);
+        color: #fff;
+      "
+    >
+      <div class="container">
+        <div class="row align-items-center g-4">
+          <!-- Image Column -->
+          <div class="col-lg-6">
+            <div class="row g-3">
+              <div class="col-12">
+                <img
+                  src="img/office.jpg"
+                  alt="Ameotech Office"
+                  class="img-fluid rounded shadow-lg"
+                  style="opacity: 0; animation: fadeIn 1s ease-out forwards"
+                />
+              </div>
+              <div class="col-6">
+                <img
+                  src="img/team.jpg"
+                  alt="Team Collaboration"
+                  class="img-fluid rounded shadow-lg"
+                  style="
+                    opacity: 0;
+                    animation: fadeIn 1s ease-out forwards;
+                    animation-delay: 0.3s;
+                  "
+                />
+              </div>
+              <div class="col-6">
+                <img
+                  src="img/interface.jpg"
+                  alt="Tech Interface"
+                  class="img-fluid rounded shadow-lg"
+                  style="
+                    opacity: 0;
+                    animation: fadeIn 1s ease-out forwards;
+                    animation-delay: 0.6s;
+                  "
+                />
+              </div>
+            </div>
+          </div>
+
+          <!-- Text Column -->
+          <div class="col-lg-6">
+            <h2
+              class="fw-bold"
+              style="
+                opacity: 0;
+                animation: fadeIn 1s ease-out forwards;
+                animation-delay: 0.9s;
+              "
+            >
+              About Ameotech Informatics
+            </h2>
+            <p
+              class="lead"
+              style="
+                opacity: 0;
+                animation: fadeIn 1s ease-out forwards;
+                animation-delay: 1.2s;
+              "
+            >
+              Established in <strong>2010</strong> and based in Mohali, Ameotech
+              Informatics is dedicated to transparency, integrity, and client
+              success. <em>Let's Code Your Thoughts</em> — we partner with
+              businesses to build scalable products, from MVPs to
+              enterprise-grade systems.
+            </p>
+            <ul
+              class="list-unstyled"
+              style="
+                opacity: 0;
+                animation: fadeIn 1s ease-out forwards;
+                animation-delay: 1.5s;
+              "
+            >
+              <li>✔ <strong>Founded:</strong> 2010</li>
+              <li>✔ <strong>Headquarters:</strong> Mohali, India</li>
+              <li>
+                ✔ <strong>Focus:</strong> Web, Mobile, UI/UX, AI/ML, QA & SEO
+              </li>
+            </ul>
+            <a
+              href="services.html"
+              class="btn btn-light mt-3"
+              style="
+                background: linear-gradient(to left, #0d6efd, #dc3545);
+                color: #fff;
+                opacity: 0;
+                animation: fadeIn 1s ease-out forwards;
+                animation-delay: 1.8s;
+              "
+              >Explore Our Services</a
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Inline CSS for fadeIn animation -->
+    <style>
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    </style>
+    <!-- SERVICES CARDS (preview) -->
+    <section id="services" class="py-5">
+      <div class="container">
+        <div class="section-title text-center mb-4">
+          <h3>Our Services</h3>
+          <p class="text-muted">
+            We provide a wide range of services to take your product to market.
+          </p>
+        </div>
+
+        <div class="row g-4">
+          <!-- Card 1 -->
+          <div class="col-md-6 col-lg-4">
+            <div class="card service-card h-100 shadow-sm">
+              <div class="card-body">
+                <div class="service-icon mb-3">🌐</div>
+                <h5 class="card-title">Custom Web Development</h5>
+                <p class="card-text">
+                  Building dynamic, responsive websites that are visually
+                  appealing and highly functional.
+                </p>
+                <a href="services.html#web" class="stretched-link"
+                  >Learn More</a
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="col-md-6 col-lg-4">
+            <div class="card service-card h-100 shadow-sm">
+              <div class="card-body">
+                <div class="service-icon mb-3">📱</div>
+                <h5 class="card-title">Mobile App Development</h5>
+                <p class="card-text">
+                  Creating custom iOS and Android apps with seamless user
+                  experiences.
+                </p>
+                <a href="services.html#mobile" class="stretched-link"
+                  >Learn More</a
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="col-md-6 col-lg-4">
+            <div class="card service-card h-100 shadow-sm">
+              <div class="card-body">
+                <div class="service-icon mb-3">🎨</div>
+                <h5 class="card-title">UI/UX Design</h5>
+                <p class="card-text">
+                  Crafting intuitive and visually appealing designs that enhance
+                  user engagement.
+                </p>
+                <a href="services.html#uiux" class="stretched-link"
+                  >Learn More</a
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="col-md-6 col-lg-4">
+            <div class="card service-card h-100 shadow-sm">
+              <div class="card-body">
+                <div class="service-icon mb-3">🤖</div>
+                <h5 class="card-title">AI & Machine Learning</h5>
+                <p class="card-text">
+                  Transform your industry with AI, LLM, and ML to streamline
+                  operations and harness data.
+                </p>
+                <a href="services.html#ai" class="stretched-link">Learn More</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 5 -->
+          <div class="col-md-6 col-lg-4">
+            <div class="card service-card h-100 shadow-sm">
+              <div class="card-body">
+                <div class="service-icon mb-3">🧪</div>
+                <h5 class="card-title">Testing & QA</h5>
+                <p class="card-text">
+                  Reliable testing and support to ensure seamless performance
+                  and quick resolutions.
+                </p>
+                <a href="services.html#qa" class="stretched-link">Learn More</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 6 -->
+          <div class="col-md-6 col-lg-4">
+            <div class="card service-card h-100 shadow-sm">
+              <div class="card-body">
+                <div class="service-icon mb-3">🔍</div>
+                <h5 class="card-title">SEO Services</h5>
+                <p class="card-text">
+                  Boost your online visibility with expert SEO strategies to
+                  improve search engine rankings.
+                </p>
+                <a href="services.html#seo" class="stretched-link"
+                  >Learn More</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TECHNOLOGIES -->
+    <section
+      id="technologies"
+      class="py-5"
+      style="background: linear-gradient(135deg, #f8f9fa, #e9ecef)"
+    >
+      <div class="container">
+        <div class="section-title text-center mb-5">
+          <h3 class="fw-bold text-dark">Technologies We Use</h3>
+          <p class="text-muted">
+            We work with the most powerful tools in the industry to build
+            scalable, modern solutions.
+          </p>
+        </div>
+
+        <div
+          class="tech-logos d-flex gap-4 overflow-auto py-4 px-2 justify-content-center"
+        >
+          <!-- Each logo wrapped for hover effect -->
+          <div
+            class="p-3 rounded bg-white shadow-sm"
+            style="width: 130px; height: 130px; transition: transform 0.3s ease"
+          >
+            <img
+              src="img/python.png"
+              alt="Python"
+              class="img-fluid h-100 w-100 object-fit-contain"
+            />
+          </div>
+          <div
+            class="p-3 rounded bg-white shadow-sm"
+            style="width: 130px; height: 130px; transition: transform 0.3s ease"
+          >
+            <img
+              src="img/django.png"
+              alt="Django"
+              class="img-fluid h-100 w-100 object-fit-contain"
+            />
+          </div>
+          <div
+            class="p-3 rounded bg-white shadow-sm"
+            style="width: 130px; height: 130px; transition: transform 0.3s ease"
+          >
+            <img
+              src="img/nodejs.png"
+              alt="Node.js"
+              class="img-fluid h-100 w-100 object-fit-contain"
+            />
+          </div>
+          <div
+            class="p-3 rounded bg-white shadow-sm"
+            style="width: 130px; height: 130px; transition: transform 0.3s ease"
+          >
+            <img
+              src="img/JavaScript.png"
+              alt="JavaScript"
+              class="img-fluid h-100 w-100 object-fit-contain"
+            />
+          </div>
+          <div
+            class="p-3 rounded bg-white shadow-sm"
+            style="width: 130px; height: 130px; transition: transform 0.3s ease"
+          >
+            <img
+              src="img/HTML5.png"
+              alt="HTML5"
+              class="img-fluid h-100 w-100 object-fit-contain"
+            />
+          </div>
+          <div
+            class="p-3 rounded bg-white shadow-sm"
+            style="width: 130px; height: 130px; transition: transform 0.3s ease"
+          >
+            <img
+              src="img/css3.png"
+              alt="CSS3"
+              class="img-fluid h-100 w-100 object-fit-contain"
+            />
+          </div>
+          <div
+            class="p-3 rounded bg-white shadow-sm"
+            style="width: 130px; height: 130px; transition: transform 0.3s ease"
+          >
+            <img
+              src="img/react.png"
+              alt="React"
+              class="img-fluid h-100 w-100 object-fit-contain"
+            />
+          </div>
+          <div
+            class="p-3 rounded bg-white shadow-sm"
+            style="width: 130px; height: 130px; transition: transform 0.3s ease"
+          >
+            <img
+              src="img/angular.png"
+              alt="Angular"
+              class="img-fluid h-100 w-100 object-fit-contain"
+            />
+          </div>
+          <div
+            class="p-3 rounded bg-white shadow-sm"
+            style="width: 130px; height: 130px; transition: transform 0.3s ease"
+          >
+            <img
+              src="img/ios.png"
+              alt="iOS"
+              class="img-fluid h-100 w-100 object-fit-contain"
+            />
+          </div>
+          <div
+            class="p-3 rounded bg-white shadow-sm"
+            style="width: 130px; height: 130px; transition: transform 0.3s ease"
+          >
+            <img
+              src="img/Android1.png"
+              alt="Android"
+              class="img-fluid h-100 w-100 object-fit-contain"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Hover Effect Script (Bootstrap-only compatible) -->
+    <script>
+      document.querySelectorAll(".tech-logos > div").forEach((el) => {
+        el.addEventListener("mouseenter", () => {
+          el.style.transform = "scale(1.1)";
+          el.style.boxShadow = "0 0.5rem 1rem rgba(0,0,0,0.15)";
+        });
+        el.addEventListener("mouseleave", () => {
+          el.style.transform = "scale(1)";
+          el.style.boxShadow = "0 .125rem .25rem rgba(0,0,0,.075)";
+        });
+      });
+    </script>
+
+    <!-- TESTIMONIALS -->
+<section id="testimonials" class="py-5 text-white" style="background: linear-gradient(to right, #0d6efd, #dc3545);">
+  <div class="container">
+    <div class="section-title text-center mb-5">
+      <h3 class="fw-bold">What Clients Say</h3>
+    </div>
+
+    <div class="testimonial-wrapper position-relative">
+      <!-- Slides -->
+      <div class="testimonial-slide active text-dark p-4 rounded shadow-lg mb-4 bg-white animate__animated animate__fadeIn">
+        <div class="d-flex align-items-center mb-3">
+          <img src="https://i.pravatar.cc/60?img=12" alt="Client" class="rounded-circle me-3" width="60" height="60">
+          <div>
+            <h6 class="mb-0 fw-semibold">CEO at Virtue Security</h6>
+            <small class="text-muted">Verified Client</small>
+          </div>
+        </div>
+        <blockquote class="blockquote mb-0">
+          <p class="fst-italic">“The end result was good quality work... Jatin, and this firm (Ameotech) are absolutely a good company to work with.”</p>
+        </blockquote>
+      </div>
+
+      <div class="testimonial-slide d-none text-dark p-4 rounded shadow-lg mb-4 bg-white animate__animated animate__fadeIn">
+        <div class="d-flex align-items-center mb-3">
+          <img src="https://i.pravatar.cc/60?img=22" alt="Client" class="rounded-circle me-3" width="60" height="60">
+          <div>
+            <h6 class="mb-0 fw-semibold">President & CEO – SWStrategies LLC</h6>
+            <small class="text-muted">Verified Client</small>
+          </div>
+        </div>
+        <blockquote class="blockquote mb-0">
+          <p class="fst-italic">“The company is happy with Ameotech Informatics’ quality of work and performance. They follow processes well and deliver on time.”</p>
+        </blockquote>
+      </div>
+
+      <div class="testimonial-slide d-none text-dark p-4 rounded shadow-lg mb-4 bg-white animate__animated animate__fadeIn">
+        <div class="d-flex align-items-center mb-3">
+          <img src="https://i.pravatar.cc/60?img=32" alt="Client" class="rounded-circle me-3" width="60" height="60">
+          <div>
+            <h6 class="mb-0 fw-semibold">Managing Partner, DecisionGPS LLC</h6>
+            <small class="text-muted">Verified Client</small>
+          </div>
+        </div>
+        <blockquote class="blockquote mb-0">
+          <p class="fst-italic">“Successfully delivered the tasks on time, gaining recognition from an end client for driving the accuracy of business transactions.”</p>
+        </blockquote>
+      </div>
+
+      <!-- Controls -->
+      <div class="testimonial-controls text-center mt-4">
+        <button class="btn btn-outline-light btn-sm me-2" id="prevTest">‹ Prev</button>
+        <button class="btn btn-outline-light btn-sm" id="nextTest">Next ›</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Animate.css CDN -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
+<!-- Slider Script -->
+<script>
+  const slides = document.querySelectorAll('.testimonial-slide');
+  let current = 0;
+  let autoSlideInterval;
+
+  function showSlide(index) {
+    slides.forEach((slide, i) => {
+      slide.classList.add('d-none');
+      slide.classList.remove('active', 'animate__fadeIn');
+    });
+    slides[index].classList.remove('d-none');
+    slides[index].classList.add('active', 'animate__fadeIn');
+  }
+
+  function nextSlide() {
+    current = (current + 1) % slides.length;
+    showSlide(current);
+  }
+
+  function prevSlide() {
+    current = (current - 1 + slides.length) % slides.length;
+    showSlide(current);
+  }
+
+  function startAutoSlide() {
+    autoSlideInterval = setInterval(nextSlide, 5000); // 5 seconds
+  }
+
+  function resetAutoSlide() {
+    clearInterval(autoSlideInterval);
+    startAutoSlide();
+  }
+
+  document.getElementById('prevTest').addEventListener('click', () => {
+    prevSlide();
+    resetAutoSlide();
+  });
+
+  document.getElementById('nextTest').addEventListener('click', () => {
+    nextSlide();
+    resetAutoSlide();
+  });
+
+  showSlide(current);
+  startAutoSlide();
+</script>
+
+    <!-- CONTACT FORM (Enhanced with Animated Illustration) -->
+    <section
+      id="contact"
+      class="py-5"
+      style="background: linear-gradient(135deg, #e0eafc, #cfdef3)"
+    >
+      <div class="container">
+        <div class="row g-5 align-items-center">
+          <!-- Contact Form -->
+          <div class="col-lg-6">
+            <div
+              class="p-4 rounded shadow-lg bg-white border border-2 border-light"
+              style="backdrop-filter: blur(6px)"
+            >
+              <h3 class="mb-3 text-primary fw-bold">Let’s Talk</h3>
+              <p class="text-muted mb-4">
+                Have a project in mind? Send us a message and we'll get back to
+                you shortly.
+              </p>
+
+              <form id="contactFormIndex" novalidate>
+                <div class="form-floating mb-3">
+                  <input
+                    type="text"
+                    class="form-control border-0 border-bottom border-primary"
+                    id="nameIndex"
+                    placeholder="Your Name"
+                    required
+                  />
+                  <label for="nameIndex">Name</label>
+                  <div class="invalid-feedback">Please enter your name.</div>
+                </div>
+
+                <div class="form-floating mb-3">
+                  <input
+                    type="email"
+                    class="form-control border-0 border-bottom border-primary"
+                    id="emailIndex"
+                    placeholder="name@example.com"
+                    required
+                  />
+                  <label for="emailIndex">Email</label>
+                  <div class="invalid-feedback">
+                    Please enter a valid email.
+                  </div>
+                </div>
+
+                <div class="form-floating mb-4">
+                  <textarea
+                    class="form-control border-0 border-bottom border-primary"
+                    placeholder="Your Message"
+                    id="messageIndex"
+                    style="height: 120px"
+                    required
+                  ></textarea>
+                  <label for="messageIndex">Message</label>
+                  <div class="invalid-feedback">Please provide a message.</div>
+                </div>
+
+                <button
+                  type="submit"
+                  class="btn btn-primary w-100 py-2 fw-semibold"
+                >
+                  Send Message
+                </button>
+              </form>
+            </div>
+          </div>
+
+          <!-- Office Info + Illustration -->
+          <div class="col-lg-6">
+            <div class="text-center text-lg-start">
+              <h4 class="text-dark fw-bold mb-3">Our Office</h4>
+              <p class="mb-2">
+                📍 C-127 1st Floor, Phase-8, Industrial Area, Mohali, 160071,
+                India.
+              </p>
+              <p class="mb-1">
+                📧 <strong>Email:</strong>
+                <a
+                  href="mailto:contact@ameotech.com"
+                  class="text-decoration-none text-primary"
+                  >contact@ameotech.com</a
+                >
+              </p>
+              <p>
+                📞 <strong>Phone:</strong>
+                <a
+                  href="tel:+910000000000"
+                  class="text-decoration-none text-primary"
+                  >+91-0000000000</a
+                >
+              </p>
+
+              <!-- Animated Illustration -->
+              <div class="mt-4">
+                <img
+                  src="img/contact-illustration.jpg"
+                  alt="Contact Illustration"
+                  class="img-fluid rounded shadow-lg animate__animated animate__fadeInRight"
+                  style="
+                    max-width: 100%;
+                    height: auto;
+                    transition: transform 0.4s ease;
+                  "
+                  onmouseover="this.style.transform='scale(1.05)'"
+                  onmouseout="this.style.transform='scale(1)'"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- FOOTER -->
+    <footer
+      class="footer text-white pt-5 bg-dark"
+      
+    >
+      <div class="container">
+        <div class="row gy-4">
+          <div class="col-md-3">
+            <h6>About</h6>
+            <p>
+              Ameotech Informatics, founded in 2010, is committed to helping
+              businesses with technology through transparent and result-driven
+              development.
+            </p>
+          </div>
+
+          <div class="col-md-3">
+            <h6>Quick Links</h6>
+            <ul class="list-unstyled">
+              <li><a href="index.html#hero" class="footer-link">Home</a></li>
+              <li>
+                <a href="index.html#about" class="footer-link">About Us</a>
+              </li>
+              <li><a href="services.html" class="footer-link">Services</a></li>
+              <li>
+                <a href="index.html#technologies" class="footer-link"
+                  >Technologies</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div class="col-md-3">
+            <h6>Services</h6>
+            <ul class="list-unstyled">
+              <li>Web Development</li>
+              <li>Mobile App Development</li>
+              <li>UI/UX Design</li>
+              <li>SEO Services</li>
+            </ul>
+          </div>
+
+          <div class="col-md-3">
+            <h6>Contact Info</h6>
+            <address>
+              C-127 1st Floor, Phase-8, Industrial Area, Mohali, 160071,
+              India<br />
+              Email:
+              <a href="mailto:contact@ameotech.com" class="footer-link"
+                >contact@ameotech.com</a
+              ><br />
+              Phone: +91-0000000000
+            </address>
+
+            <div class="social mt-2">
+              <a href="#" class="me-2 footer-social">LinkedIn</a>
+              <a href="#" class="me-2 footer-social">Twitter</a>
+              <a href="#" class="footer-social">Facebook</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center py-3 mt-4 border-top border-secondary">
+          © <span id="currentYear"></span> Ameotech Informatics. All Rights
+          Reserved.
+        </div>
+      </div>
+    </footer>
+
+    <!-- Bootstrap Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom JS -->
+    <script src="js/main.js"></script>
+  </body>
+</html>
